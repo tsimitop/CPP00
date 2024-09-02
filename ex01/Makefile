@@ -1,4 +1,8 @@
-NAME = phonebook
+NAME = annoying_phonebook
+
+CC = c++
+
+CFLAGS = -Wall -Werror -Wextra
 
 NAME :
-	c++ -Wall -Werror -Wextra phonebook.cpp -o $(NAME)
+	(CC) $(CFLAGS) phonebook.cpp -o $(NAME)

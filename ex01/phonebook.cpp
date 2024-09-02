@@ -1,24 +1,16 @@
-#include "phone.hpp"
+#include "PhoneBook.hpp"
 
-int main(void)
+void PhoneBook::addContact()
 {
-	PhoneBook	book;
-	// Contact		contact;
-	std::cout << "Would you like to ADD/SEARCH a contact or EXIT the program?" << std::endl;
-	std::string user_input;
-	std::cin >> user_input;
-	while (user_input != "EXIT")
-	{
-		if (user_input == "ADD")
-			book::addContact(); // std::cout << "Perform add function" << std::endl; //add function
-		else if (user_input == "SEARCH")
-			std::cout << "Perform search function" << std::endl; //search function
-
-		else
-			std::cout << "Options are: ADD, SEARCH, EXIT" << std::endl;
-		std::cin >> user_input;
-	}
-	if (user_input == "EXIT")
-		std::cout << "You are exiting the phonebook, you will not be able to access any of your contacts ever again" << std::endl;
-	return (0);
+	std::cout << "What is your contact's first name?" << std::endl;
+	std::cin >> PhoneBook::contacts[5]::first_name;
+	std::cout << "What is your contact's last name?" << std::endl;
+	std::cin >> last_name;
+	std::cout << "What is your contact's nickname?" << std::endl;
+	std::cin >> nickname;
+	std::cout << "What is your contact's phone number?" << std::endl;
+	std::cin >> phone_number;
+	std::cout << "What is your contact's darkest secret?" << std::endl;
+	std::cin >> darkest_secret;
+	std::cout << "Adding contact..." << std::endl;
 }
