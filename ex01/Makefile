@@ -4,5 +4,22 @@ CC = c++
 
 CFLAGS = -Wall -Werror -Wextra
 
-NAME :
-	(CC) $(CFLAGS) phonebook.cpp -o $(NAME)
+SRCS = main.cpp phonebook.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+$(NAME) : $(OBJS)
+	@$(CC) $(CFLAGS) $^ -o $(NAME)
+
+%.o : %.cpp
+	@$(CC) -c $(CFLAGS) $< -o $@
+
+all : $(NAME)
+
+clean :
+	rm -f $(OBJS)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean all
