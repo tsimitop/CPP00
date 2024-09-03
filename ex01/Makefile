@@ -4,7 +4,7 @@ CC = c++
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = main.cpp phonebook.cpp
+SRCS = main.cpp phonebook.cpp contact.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
