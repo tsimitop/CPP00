@@ -2,7 +2,7 @@ NAME = annoying_phonebook
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
 
 SRCS = main.cpp phonebook.cpp contact.cpp
 
