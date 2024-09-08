@@ -23,7 +23,6 @@ int main(void)
 	{
 		if (user_input == "ADD")
 		{
-		std::cout << "user_input = ADD CASE" << std::endl;
 			book.addContact(id % 8);
 			id++;
 		}

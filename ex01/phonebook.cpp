@@ -32,8 +32,9 @@ void	PhoneBook::acceptValidField(std::string& field)
 	{
 		while (field.empty())
 		{
+			if (!std::getline(std::cin, field) && std::cin.eof())
+				exit(1);
 			std::cout << "No field of your contact may be empty. Please provide an input." << std::endl;
-			std::getline(std::cin, field);
 		}
 	}
 }
