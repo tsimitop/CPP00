@@ -17,7 +17,7 @@ int main(void)
 	int				id = 0;
 
 	present_programm();
-	std::cout << "What option would you like?" << std::endl;
+	std::cout << "What option would you like? ADD, SEARCH or EXIT?" << std::endl;
 	std::getline(std::cin, user_input);
 	while (user_input != "EXIT")
 	{
@@ -27,10 +27,10 @@ int main(void)
 			id++;
 		}
 		else if (user_input == "SEARCH")
-			book.displayContacts(max);
+			book.displayContacts(book, max);
 		else
 			std::cout << "The only valid options are: ADD, SEARCH, EXIT. Please type a valid option." << std::endl << std::endl;
-		std::cout << "What option would you like?" << std::endl;
+		std::cout << "What option would you like? ADD, SEARCH or EXIT?" << std::endl;
 		std::getline(std::cin, user_input);
 		if (id < 9)
 			max = id;
