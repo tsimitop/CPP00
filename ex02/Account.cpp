@@ -53,8 +53,6 @@ void		Account::makeDeposit( int deposit )
 
 bool		Account::makeWithdrawal( int withdrawal )
 {
-	// (void)withdrawal;
-	// std::cout << "FUNCTION DECLARED" << std::endl;
 	_displayTimestamp();
 	std::cout 	<< " index:" << this->_accountIndex 
 				<< ";p_amount:" << this->_amount;
@@ -76,8 +74,7 @@ bool		Account::makeWithdrawal( int withdrawal )
 
 int			Account::checkAmount( void ) const
 {
-	// std::cout << "FUNCTION DECLARED" << std::endl;
-	return (0);
+	return (this->_amount);
 }
 
 void		Account::displayStatus( void ) const
