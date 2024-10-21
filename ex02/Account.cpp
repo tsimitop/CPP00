@@ -35,14 +35,42 @@ void	Account::displayAccountsInfos( void )
 
 void		Account::makeDeposit( int deposit )
 {
-	(void)deposit;
-	// std::cout << "FUNCTION DECLARED" << std::endl;
+	_displayTimestamp();
+	std::cout 	<< " index:" << this->_accountIndex 
+				<< ";p_amount:" << this->_amount
+				<< ";deposit:" << deposit;
+	if (deposit > 0)
+	{
+		_nbDeposits++;
+		_totalNbDeposits++;
+		this->_totalAmount += deposit;
+		this->_amount += deposit;
+	}
+	std::cout 	<< ";amount:" << this->_amount
+				<< ";nb_deposits:" << this->_nbDeposits
+				<< std::endl;
 }
 
 bool		Account::makeWithdrawal( int withdrawal )
 {
-	(void)withdrawal;
+	// (void)withdrawal;
 	// std::cout << "FUNCTION DECLARED" << std::endl;
+	_displayTimestamp();
+	std::cout 	<< " index:" << this->_accountIndex 
+				<< ";p_amount:" << this->_amount;
+	if (withdrawal > this->_amount)
+	{
+		std::cout << ";withdrawal:refused" << std::endl;
+		return (false);
+	}
+	std::cout	<< ";withdrawal:" << withdrawal;
+	_nbWithdrawals++;
+	_totalNbWithdrawals++;
+	this->_totalAmount -= withdrawal;
+	this->_amount -= withdrawal;
+	std::cout 	<< ";amount:" << this->_amount
+				<< ";nb_withdrawals:" << this->_nbWithdrawals
+				<< std::endl;
 	return (true);
 }
 
@@ -54,7 +82,12 @@ int			Account::checkAmount( void ) const
 
 void		Account::displayStatus( void ) const
 {
-	// std::cout << "FUNCTION DECLARED" << std::endl;
+	_displayTimestamp();
+	std::cout 	<< " index:" << this->_accountIndex 
+				<< ";amount:" << this->_amount
+				<< ";deposits:" << this->_nbDeposits
+				<< ";withdrawals:" << this->_nbWithdrawals
+				<< std::endl;
 }
 
 void	Account::_displayTimestamp( void )
