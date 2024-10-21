@@ -2,18 +2,19 @@
 #include <cctype>
 #include <string>
 
+	// acceptValidField(contacts[id].first_name, id);
 void PhoneBook::addContact(int id)
 {
 	std::cout << id << ": What is your contact's first name?" << std::endl;
-	acceptValidField(contacts[id].first_name, id);
+	acceptValidField(contacts[id].getFirstName(), id);
 	std::cout << id << ": What is your contact's last name?" << std::endl;
-	acceptValidField(contacts[id].last_name, id);
+	acceptValidField(contacts[id].getLastName(), id);
 	std::cout << id << ": What is your contact's nickname?" << std::endl;
-	acceptValidField(contacts[id].nickname, id);
+	acceptValidField(contacts[id].getNickname(), id);
 	std::cout << id << ": What is your contact's phone number?" << std::endl;
-	acceptValidField(contacts[id].phone_number, id);
+	acceptValidField(contacts[id].getPhoneNumber(), id);
 	std::cout << id << ": What is your contact's darkest secret?" << std::endl;
-	acceptValidField(contacts[id].darkest_secret, id);
+	acceptValidField(contacts[id].getDarkestSecret(), id);
 	std::cout << "Adding contact [" << id << "] ..." << std::endl << std::endl;
 }
 
@@ -31,11 +32,11 @@ void	PhoneBook::acceptValidField(std::string& field, int id)//Contact contact,
 void	PhoneBook::singleContactDetails(int id)
 {
 	std::cout << "Contact id: " << id << std::endl;
-	std::cout << "First name: " << contacts[id].first_name << std::endl;
-	std::cout << "Last name: " << contacts[id].last_name << std::endl;
-	std::cout << "Nickname: " << contacts[id].nickname << std::endl;
-	std::cout << "Phone number: " << contacts[id].phone_number << std::endl;
-	std::cout << "Darkest secret: " << contacts[id].darkest_secret << std::endl;
+	std::cout << "First name: " << contacts[id].getFirstName() << std::endl;
+	std::cout << "Last name: " << contacts[id].getLastName() << std::endl;
+	std::cout << "Nickname: " << contacts[id].getNickname() << std::endl;
+	std::cout << "Phone number: " << contacts[id].getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: " << contacts[id].getDarkestSecret() << std::endl;
 	std::cout << std::endl;
 }
 
