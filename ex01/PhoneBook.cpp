@@ -2,7 +2,6 @@
 #include <cctype>
 #include <string>
 
-	// acceptValidField(contacts[id].first_name, id);
 void PhoneBook::addContact(int id)
 {
 	std::cout << id << ": What is your contact's first name?" << std::endl;
