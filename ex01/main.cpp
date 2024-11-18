@@ -19,7 +19,7 @@ int main(void)
 	present_programm();
 	std::cout << "What option would you like? ADD, SEARCH or EXIT?\n";
 	std::getline(std::cin, user_input);
-	while (user_input != "EXIT")
+	while (user_input != "EXIT" && std::cin.eof())
 	{
 		if (user_input == "ADD")
 		{

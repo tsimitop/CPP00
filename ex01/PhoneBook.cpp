@@ -72,6 +72,7 @@ void PhoneBook::displayContacts(PhoneBook phonebook, int max)
 	else
 	{
 		std::cout << "Choose one of the following contacts:\n\n";
+		std::cout << "ID       |FIRST NAME| LAST NAME| NICKNAME |\n\n";
 		while (id < max)
 		{
 			contact.contactLineDisplay(phonebook.contacts[id], id);
