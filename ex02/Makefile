@@ -22,4 +22,9 @@ clean :
 fclean : clean
 	rm -f $(NAME)
 
+superclean : fclean
+	rm -f *.txt
+
 re : fclean all
+
+.PHONY: all clean fclean re superclean
