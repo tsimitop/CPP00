@@ -1,13 +1,25 @@
 NAME = megaphone
 
-all: $(NAME)
+CC = c++
 
-$(NAME): megaphone.cpp
-	c++ -Wall -Werror -Wextra megaphone.cpp -o $(NAME)
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
 
-clean:
+SRCS = megaphone.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+$(NAME) : $(OBJS)
+	@$(CC) $(CFLAGS) $^ -o $(NAME)
+
+%.o : %.cpp
+	@$(CC) -c $(CFLAGS) $< -o $@
+
+all : $(NAME)
+
+clean :
+	rm -f $(OBJS)
+
+fclean : clean
 	rm -f $(NAME)
 
-re: clean all
-
-.PHONY: all clean re
+re : fclean all
