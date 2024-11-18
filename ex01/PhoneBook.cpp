@@ -4,25 +4,45 @@
 
 void PhoneBook::addContact(int id)
 {
-	std::cout << id << ": What is your contact's first name?" << std::endl;
-	acceptValidField(contacts[id].getFirstName(), id);
-	std::cout << id << ": What is your contact's last name?" << std::endl;
-	acceptValidField(contacts[id].getLastName(), id);
-	std::cout << id << ": What is your contact's nickname?" << std::endl;
-	acceptValidField(contacts[id].getNickname(), id);
-	std::cout << id << ": What is your contact's phone number?" << std::endl;
-	acceptValidField(contacts[id].getPhoneNumber(), id);
-	std::cout << id << ": What is your contact's darkest secret?" << std::endl;
-	acceptValidField(contacts[id].getDarkestSecret(), id);
-	std::cout << "Adding contact [" << id << "] ..." << std::endl << std::endl;
+	std::string	field;
+
+	std::cout << id << ": What is your contact's first name?\n";
+	acceptValidField(field);
+	contacts[id].setFirstName(field);
+	std::cout << id << ": What is your contact's last name?\n";
+	acceptValidField(field);
+	contacts[id].setLastName(field);
+	std::cout << id << ": What is your contact's nickname?\n";
+	acceptValidField(field);
+	contacts[id].setNickname(field);
+	std::cout << id << ": What is your contact's phone number?\n";
+	acceptValidField(field);
+	contacts[id].setPhoneNumber(field);
+	std::cout << id << ": What is your contact's darkest secret?\n";
+	acceptValidField(field);
+	contacts[id].setDarkestSecret(field);
+	std::cout << "Adding contact [" << id << "] ...\n\n";
 }
 
-void	PhoneBook::acceptValidField(std::string& field, int id)//Contact contact, 
+bool	PhoneBook::fields_valid(int id)
+{
+	const Contact &contact = this->contacts[id];
+
+	if (contact.isEmpty(contact.getFirstName()) || \
+	contact.isEmpty(contact.getLastName()) || \
+	contact.isEmpty(contact.getNickname()) || \
+	contact.isEmpty(contact.getPhoneNumber()) || \
+	contact.isEmpty(contact.getDarkestSecret()))
+		return (false);
+	return (true);
+}
+
+void	PhoneBook::acceptValidField(std::string& field)
 {
 	std::getline(std::cin, field);
-	while (field.empty() || this->contacts[id].isEmpty(field))
+	while (field.empty() || lineIsEmpty(field))
 	{
-		std::cout << "No field of your contact may be empty. Please provide an input." << std::endl;
+		std::cout << "No field of your contact may be empty. Please provide an input.\n";
 		if (!std::getline(std::cin, field) && std::cin.eof())
 			exit(1);
 	}
@@ -41,38 +61,38 @@ void	PhoneBook::singleContactDetails(int id)
 
 void PhoneBook::displayContacts(PhoneBook phonebook, int max)
 {
-	int id = 0;
-	Contact contact;
-	// PhoneBook phonebook;
-	std::string	user_int;
-	int conv_uinpt;
+	int			id = 0;
+	int			conv_uinpt;
 	std::size_t	length;
+	std::string	user_int;
+	Contact		contact;
+
 	if (max == 0)
-		std::cout << "There are no contacts to display. Add a contact typing the ADD option." << std::endl;
+		std::cout << "There are no contacts to display. Add a contact typing the ADD option.\n";
 	else
 	{
-		std::cout << "Choose one of the following contacts:" << std::endl << std::endl;
+		std::cout << "Choose one of the following contacts:\n\n";
 		while (id < max)
 		{
 			contact.contactLineDisplay(phonebook.contacts[id], id);
 			id++;
 		}
-		std::cout << "Enter the id of the contact you wish to display:" << std::endl;
+		std::cout << "Enter the id of the contact you wish to display:\n";
 		std::getline(std::cin, user_int);
 		if (!contact.isNumber(user_int))
 		{
-			std::cout << "input is not acceptable." << std::endl;
+			std::cout << "input is not acceptable.\n";
 			return ;
 		}
 		length = user_int.length();
 		if (length > 3)
 		{
-			std::cout << "Sorry, id is out of bounds. Better luck next time." << std::endl;
+			std::cout << "Sorry, id is out of range. Better luck next time.\n";
 			return ;
 		}
 		conv_uinpt = std::stoi(user_int);
 		if (conv_uinpt >= max || conv_uinpt < 0)
-			std::cout << "Sorry, id is out of bounds. Better luck next time." << std::endl;
+			std::cout << "Sorry, id is out of range. Better luck next time.\n";
 		else
 			singleContactDetails(conv_uinpt);
 	}

@@ -2,11 +2,11 @@
 
 void	present_programm()
 {
-	std::cout << std::endl << "This is a very very annoying phonebook." << std::endl << std::endl << std::endl;
-	std::cout << "You have thee available options:" << std::endl;
-	std::cout << "    ADD: Add a new contact" << std::endl;
-	std::cout << "    SEARCH: Search for existing contacts" << std::endl;
-	std::cout << "    EXIT: Exit the phonebook and LOOSE ALL YOUR CONTACTS!" << std::endl << std::endl;
+	std::cout << "\nThis is a very very annoying phonebook.\n\n\n";
+	std::cout << "You have thee available options:\n";
+	std::cout << "    ADD: Add a new contact\n";
+	std::cout << "    SEARCH: Search for existing contacts\n";
+	std::cout << "    EXIT: Exit the phonebook and LOOSE ALL YOUR CONTACTS!\n\n";
 }
 
 int main(void)
@@ -17,7 +17,7 @@ int main(void)
 	int				id = 0;
 
 	present_programm();
-	std::cout << "What option would you like? ADD, SEARCH or EXIT?" << std::endl;
+	std::cout << "What option would you like? ADD, SEARCH or EXIT?\n";
 	std::getline(std::cin, user_input);
 	while (user_input != "EXIT")
 	{
@@ -29,13 +29,13 @@ int main(void)
 		else if (user_input == "SEARCH")
 			book.displayContacts(book, max);
 		else
-			std::cout << "The only valid options are: ADD, SEARCH, EXIT. Please type a valid option." << std::endl << std::endl;
-		std::cout << "What option would you like? ADD, SEARCH or EXIT?" << std::endl;
+			std::cout << "The only valid options are: ADD, SEARCH, EXIT. Please type a valid option.\n\n";
+		std::cout << "What option would you like? ADD, SEARCH or EXIT?\n";
 		std::getline(std::cin, user_input);
 		if (id < 9)
 			max = id;
 	}
 	if (user_input == "EXIT")
-		std::cout << "You are exiting the phonebook, you will not be able to access any of your contacts ever again! MUAHAHA!!!" << std::endl;
+		std::cout << "You are exiting the phonebook, you will not be able to access any of your contacts ever again! MUAHAHA!!!\n";
 	return (0);
 }
