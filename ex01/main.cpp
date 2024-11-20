@@ -19,8 +19,10 @@ int main(void)
 	present_programm();
 	std::cout << "What option would you like? ADD, SEARCH or EXIT?\n";
 	std::getline(std::cin, user_input);
-	while (user_input != "EXIT" && std::cin.eof())
+	while (user_input != "EXIT")
 	{
+		if (std::cin.eof())
+			break;
 		if (user_input == "ADD")
 		{
 			book.addContact(id % 8);
